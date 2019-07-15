@@ -7,9 +7,10 @@ resource "github_repository" "main" {
 
   private = "${var.private}"
 
-  has_issues   = "${var.has_issues}"
-  has_projects = "${var.has_projects}"
-  has_wiki     = "${var.has_wiki}"
+  has_downloads = "${var.has_downloads}"
+  has_issues    = "${var.has_issues}"
+  has_projects  = "${var.has_projects}"
+  has_wiki      = "${var.has_wiki}"
 
   allow_merge_commit = "${var.allow_merge_commit}"
   allow_squash_merge = "${var.allow_squash_merge}"
@@ -77,10 +78,11 @@ resource "github_branch_protection" "main" {
   }
 
   required_pull_request_reviews {
-    dismiss_stale_reviews      = "${var.branch_protection_dismiss_stale_reviews}"
-    dismissal_users            = "${var.branch_protection_dismissal_users}"
-    dismissal_teams            = "${var.branch_protection_dismissal_teams}"
-    require_code_owner_reviews = "${var.branch_protection_require_code_owner_reviews}"
+    dismiss_stale_reviews           = "${var.branch_protection_dismiss_stale_reviews}"
+    dismissal_users                 = "${var.branch_protection_dismissal_users}"
+    dismissal_teams                 = "${var.branch_protection_dismissal_teams}"
+    require_code_owner_reviews      = "${var.branch_protection_require_code_owner_reviews}"
+    required_approving_review_count = "${var.branch_protection_required_approving_review_count}"
   }
 
   restrictions {
