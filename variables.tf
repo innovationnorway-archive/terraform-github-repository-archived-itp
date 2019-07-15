@@ -28,6 +28,14 @@ variable "private" {
   description = "Either `true` to create a private repository or `false` to create a public one."
 }
 
+variable "has_downloads" {
+  type = "string"
+
+  default = true
+
+  description = "Either `true` to enable downloads for the repository or `false` to disable them."
+}
+
 variable "has_issues" {
   type = "string"
 
@@ -212,4 +220,10 @@ variable "branch_protection_restrictions_teams" {
   type        = "list"
   default     = []
   description = "The list of team slugs with push access."
+}
+
+variable "branch_protection_required_approving_review_count" {
+  type        = "string"
+  default     = 1
+  description = "Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 1-6."
 }

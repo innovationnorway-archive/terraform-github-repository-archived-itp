@@ -86,6 +86,7 @@ module "repository" {
 | `description` | `string` | A short description of the repository. |
 | `homepage_url` | `string` | A URL with more information about the repository. |
 | `private` | `bool` | Either `true` to create a private repository or `false` to create a public one. Creating private repositories requires a paid GitHub account. Default: `true`. |
+| `has_downloads` | `bool` | Either `true` to enable downloads for the repository or `false` to disable them. Default: `true`. |
 | `has_issues` | `bool` | Either `true` to enable issues for the repository or `false` to disable them. Default: `true`. |
 | `has_projects` | `bool` | Either `true` to enable projects for the repository or `false` to disable them. Default: `false`. |
 | `has_wiki` | `bool` | Either `true` to enable the wiki for the repository or `false` to disable it. Default: `false`. |
@@ -106,16 +107,17 @@ If enabled, `branch_protection` adds the the following keys:
 
 | Name | Type | Description |
 | --- | --- | --- |
-|`branch_protection_enabled`|`string`|Enable branch protection for the default branch|
-|`branch_protection_enforce_admins`|`string`|Setting this to true enforces status checks for repository administrators. Default: `false`|
-|`branch_protection_strict`|`string`|Require branches to be up to date before merging. Default: `true`|
-|`branch_protection_contexts`|`list`|The list of status checks to require in order to merge into this branch. Default: `[]`|
-|`branch_protection_dismiss_stale_reviews`|`string`|Dismiss approved reviews automatically when a new commit is pushed. Default: `true`.|
-|`branch_protection_dismissal_users`|`list`|The list of user logins with dismissal access. Default: `[]`|
-|`branch_protection_dismissal_teams`|`list`|The list of team slugs with dismissal access. Always use slug of the team, not its name. Each team already has to have access to the repository. Default: `[]`|
-|`branch_protection_require_code_owner_reviews`|`string`|Require an approved review in pull requests including files with a designated code owner. Default: `false`|
-|`branch_protection_restrictions_users`|`list`|The list of user logins with push access. Default: `[]`|
-|`branch_protection_restrictions_teams`|`list`|The list of team slugs with push access. Always use slug of the team, not its name. Each team already has to have access to the repository. Default: `[]`|
+| `branch_protection_enabled` | `string` | Enable branch protection for the default branch |
+| `branch_protection_enforce_admins` | `string` | Setting this to true enforces status checks for repository administrators. Default: `false` |
+| `branch_protection_strict` | `string` | Require branches to be up to date before merging. Default: `true` |
+| `branch_protection_contexts` | `list` | The list of status checks to require in order to merge into this branch. Default: `[]` |
+| `branch_protection_dismiss_stale_reviews` | `string` | Dismiss approved reviews automatically when a new commit is pushed. Default: `true`. |
+| `branch_protection_dismissal_users` | `list` | The list of user logins with dismissal access. Default: `[]` |
+| `branch_protection_dismissal_teams` | `list` | The list of team slugs with dismissal access. Always use slug of the team, not its name. Each team already has to have access to the repository. Default: `[]` |
+| `branch_protection_require_code_owner_reviews` | `string` | Require an approved review in pull requests including files with a designated code owner. Default: `false` |
+| `branch_protection_restrictions_users` | `list` | The list of user logins with push access. Default: `[]` |
+| `branch_protection_restrictions_teams` | `list` | The list of team slugs with push access. Always use slug of the team, not its name. Each team already has to have access to the repository. Default: `[]` |
+| `branch_protection_required_approving_review_count` | `string` | Require x number of approvals to satisfy branch protection requirements. If this is specified it must be a number between 1-6. Default: `1` |
 
 Note that`branch_protection` only applies to the default branch of the repository.
 
