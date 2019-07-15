@@ -52,6 +52,7 @@ resource "github_repository" "main" {
   description        = var.description
   homepage_url       = var.homepage_url
   private            = var.private
+  has_downloads      = var.has_downloads
   has_issues         = var.has_issues
   has_projects       = var.has_projects
   has_wiki           = var.has_wiki
@@ -112,10 +113,11 @@ resource "github_branch_protection" "main" {
     for_each = local.required_pull_request_reviews[count.index]
 
     content {
-      dismiss_stale_reviews      = required_pull_request_reviews.value.dismiss_stale_reviews
-      dismissal_users            = required_pull_request_reviews.value.dismissal_users
-      dismissal_teams            = required_pull_request_reviews.value.dismissal_teams
-      require_code_owner_reviews = required_pull_request_reviews.value.require_code_owner_reviews
+      dismiss_stale_reviews           = required_pull_request_reviews.value.dismiss_stale_reviews
+      dismissal_users                 = required_pull_request_reviews.value.dismissal_users
+      dismissal_teams                 = required_pull_request_reviews.value.dismissal_teams
+      require_code_owner_reviews      = required_pull_request_reviews.value.require_code_owner_reviews
+      required_approving_review_count = required_pull_request_reviews.value.required_approving_review_count
     }
   }
 
