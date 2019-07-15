@@ -21,6 +21,13 @@ variable "private" {
   description = "Either `true` to create a private repository or `false` to create a public one."
 }
 
+variable "has_downloads" {
+  type    = bool
+  default = true
+
+  description = "Either `true` to enable downloads for the repository or `false` to disable them."
+}
+
 variable "has_issues" {
   type        = bool
   default     = true

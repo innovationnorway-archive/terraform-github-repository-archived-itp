@@ -114,6 +114,7 @@ module "repository" {
 | `description` | `string` | A short description of the repository. |
 | `homepage_url` | `string` | A URL with more information about the repository. |
 | `private` | `bool` | Either `true` to create a private repository or `false` to create a public one. Creating private repositories requires a paid GitHub account. Default: `true`. |
+| `has_downloads` | `bool` | Either `true` to enable downloads for the repository or `false` to disable them. Default: `true`. |
 | `has_issues` | `bool` | Either `true` to enable issues for the repository or `false` to disable them. Default: `true`. |
 | `has_projects` | `bool` | Either `true` to enable projects for the repository or `false` to disable them. Default: `false`. |
 | `has_wiki` | `bool` | Either `true` to enable the wiki for the repository or `false` to disable it. Default: `false`. |
