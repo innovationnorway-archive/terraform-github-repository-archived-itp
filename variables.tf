@@ -22,7 +22,7 @@ variable "private" {
 }
 
 variable "has_downloads" {
-  type = bool
+  type    = bool
   default = true
 
   description = "Either `true` to enable downloads for the repository or `false` to disable them."
