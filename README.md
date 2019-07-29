@@ -178,6 +178,7 @@ The `required_pull_request_reviews` object can have the following keys:
 | `dismissal_teams` | `list` | The list of team `slug`s with dismissal access. |
 | `dismiss_stale_reviews` | `bool` | Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit. |
 | `require_code_owner_reviews` | `bool` | Blocks merging pull requests until [code owners](https://help.github.com/articles/about-code-owners/) review them. |
+| `required_approving_review_count` | `number` | The required number of pull request review approvals to block merging. |
 
 The `restrictions` object must have the following keys:
 

@@ -29,10 +29,11 @@ locals {
   required_pull_request_reviews = [
     for b in local.branch_protection : [
       for r in b.required_pull_request_reviews[*] : merge({
-        dismiss_stale_reviews      = true
-        dismissal_users            = []
-        dismissal_teams            = []
-        require_code_owner_reviews = null
+        dismiss_stale_reviews           = true
+        dismissal_users                 = []
+        dismissal_teams                 = []
+        require_code_owner_reviews      = null
+        required_approving_review_count = 1
       }, r)
     ]
   ]
@@ -112,10 +113,11 @@ resource "github_branch_protection" "main" {
     for_each = local.required_pull_request_reviews[count.index]
 
     content {
-      dismiss_stale_reviews      = required_pull_request_reviews.value.dismiss_stale_reviews
-      dismissal_users            = required_pull_request_reviews.value.dismissal_users
-      dismissal_teams            = required_pull_request_reviews.value.dismissal_teams
-      require_code_owner_reviews = required_pull_request_reviews.value.require_code_owner_reviews
+      dismiss_stale_reviews           = required_pull_request_reviews.value.dismiss_stale_reviews
+      dismissal_users                 = required_pull_request_reviews.value.dismissal_users
+      dismissal_teams                 = required_pull_request_reviews.value.dismissal_teams
+      require_code_owner_reviews      = required_pull_request_reviews.value.require_code_owner_reviews
+      required_approving_review_count = required_pull_request_reviews.value.required_approving_review_count
     }
   }
 
